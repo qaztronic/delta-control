@@ -21,8 +21,8 @@ module scaler_mux #(int W, int Q, real V)
 , output  signed [W-1:0] out
 );
   // -------------------------------------------------------------
-  localparam logic signed [W-1:0] V_NEG = ~($rtoi(V * 2**Q) - 1);
-  localparam logic signed [W-1:0] V_POS =   $rtoi(V * 2**Q);
+  localparam logic signed [W-1:0] V_NEG = ~(W'($rtoi(V * 2**Q)) - 1);
+  localparam logic signed [W-1:0] V_POS =   W'($rtoi(V * 2**Q)     );
 
   initial
     $display("%m | %b | %b |", V_NEG , V_POS);

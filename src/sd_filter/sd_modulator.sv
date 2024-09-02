@@ -25,7 +25,9 @@ module sd_modulator  #(W, Q)
 );
   // -------------------------------------------------------------
   reg signed  [W-1:0] z[2];
+  /* verilator lint_off UNOPTFLAT */
   wire signed [W-1:0] sum[2];
+  /* verilator lint_on UNOPTFLAT */
 
   generate
     for (genvar i = 0; i < 2; i++)

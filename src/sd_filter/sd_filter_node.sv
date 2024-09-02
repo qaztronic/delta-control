@@ -90,7 +90,9 @@ module sd_filter_node #(real ALPHA, real BETA, sd_filter_cfg_t CFG)
     alpha_mux_i(feedback, alpha);
 
   // -------------------------------------------------------------
+  /* verilator lint_off WIDTHEXPAND */
   wire signed [W:0] k_ts_sum = k_ts_node + beta - alpha;  // grow by 1 bit for addition
+  /* verilator lint_on  WIDTHEXPAND */
   reg  signed [OUT_W-1:0] z;
   wire signed [OUT_W-1:0] acc_sum = z + {{(OUT_W - W - 1){k_ts_sum[W]}}, k_ts_sum};
 
